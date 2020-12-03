@@ -15,6 +15,18 @@ class Day2 {
         return validPasswords
     }
 
+    fun solveSecondStar(input: List<String>): Int {
+        var validPasswords = 0
+        for (passwordString in input) {
+            val (minValue, maxValue, letter, password) = parseString(passwordString)
+
+            if ((password[minValue-1] == letter).xor(password[maxValue-1] == letter)) {
+                validPasswords++
+            }
+        }
+        return validPasswords
+    }
+
     private fun parseString(passwordString: String): Password {
         val values = passwordString.split("-", " ", ":")
         return Password(

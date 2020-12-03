@@ -22,4 +22,18 @@ class Day2Test {
         val solution = day2Solver.solveFirstStar(input)
         println("Solution:$solution")
     }
+
+    @Test
+    fun exampleTestStar2() {
+        var input = listOf("1-3 a: abcde", "1-3 b: cdefg", "2-9 c: ccccccccc")
+        val solution = day2Solver.solveSecondStar(input)
+        Assert.assertEquals(1, solution)
+    }
+
+    @Test
+    fun realTestStar2() {
+        var input = inputReader.readDayTwoAsString("input_day2.txt")
+        val solution = day2Solver.solveSecondStar(input)
+        println("Solution:$solution")
+    }
 }
