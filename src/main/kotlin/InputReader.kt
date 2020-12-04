@@ -19,4 +19,12 @@ class InputReader {
         return result
     }
 
+    fun readDayThreeAsList(fileName: String): List<String> {
+        val inputStream = javaClass.classLoader.getResource(fileName)
+        val result = ArrayList<String>()
+        File(inputStream.toURI())
+            .forEachLine { result.add(it) }
+        return result
+    }
+
 }
