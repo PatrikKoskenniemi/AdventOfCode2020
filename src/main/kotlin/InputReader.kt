@@ -27,4 +27,26 @@ class InputReader {
         return result
     }
 
+    fun readDayFourAsListOfMap(fileName: String): List<Map<String, String>> {
+        val inputStream = javaClass.classLoader.getResource(fileName)
+        val result = File(inputStream.toURI())
+            .readText().split("\n\n")
+
+        val passports = ArrayList<Map<String, String>>()
+        for (passport in result) {
+            val passportMap = HashMap<String, String>()
+            val pairs = passport.split(" ", "\n")
+            for (pair in pairs) {
+                val split = pair.split(":")
+                if (split.size == 2) {
+                    passportMap[split[0]] = split[1]
+                } else {
+                    println(pair)
+                }
+            }
+            passports.add(passportMap)
+        }
+        return passports
+    }
+
 }
