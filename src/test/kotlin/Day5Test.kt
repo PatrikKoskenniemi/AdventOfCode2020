@@ -25,4 +25,11 @@ class Day5Test {
         val solution = day5Solver.solveFirstStar(input)
         println("Solution:$solution")
     }
+
+    @Test
+    fun realTestStar2() {
+        val input = inputReader.readDayFiveAsString("input_day5.txt")
+        val solution = day5Solver.solveSecondStar(input)
+        println("Solution:$solution")
+    }
 }

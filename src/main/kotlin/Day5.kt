@@ -1,9 +1,25 @@
+import java.util.stream.Collectors
+
 class Day5 {
 
     fun solveFirstStar(input: List<String>): Long {
         return input.stream()
             .map(this::findSeatId)
             .max(Long::compareTo).get()
+    }
+
+    fun solveSecondStar(input: List<String>): Long {
+        val listOfSeatIds = input.stream()
+            .map(this::findSeatId)
+            .sorted()
+            .collect(Collectors.toList())
+
+        for ((index, seatId) in listOfSeatIds.withIndex()) {
+            if ((listOfSeatIds[index + 1] != seatId + 1)) {
+                return listOfSeatIds[index + 1] - 1
+            }
+        }
+        return 0
     }
 
     private fun findSeatId(code: String): Long {
