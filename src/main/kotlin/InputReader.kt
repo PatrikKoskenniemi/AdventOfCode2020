@@ -56,4 +56,12 @@ class InputReader {
             .forEachLine { result.add(it) }
         return result
     }
+
+    fun readDaySixAsListOfMap(fileName: String): List<String> {
+        val inputStream = javaClass.classLoader.getResource(fileName)
+        val result = File(inputStream.toURI())
+            .readText().split("\n\n")
+
+        return result
+    }
 }
