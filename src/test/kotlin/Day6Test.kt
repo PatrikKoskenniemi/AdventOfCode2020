@@ -33,8 +33,46 @@ class Day6Test {
 
     @Test
     fun realTestStar1() {
-        val input = inputReader.readDaySixAsListOfMap("input_day6.txt")
+        val input = inputReader.readDaySixAsListOfString("input_day6.txt")
         val solution = day6Solver.solveFirstStar(input)
+        println("Solution:$solution")
+    }
+
+    @Test
+    fun exampleTestStar2() {
+        val input = """
+            abc
+            
+            a
+            b
+            c
+            
+            ab
+            ac
+            
+            a
+            a
+            a
+            a
+            
+            b
+            
+            j
+            j
+            j
+            jc
+            j
+            """.trimIndent()
+            .split("\n\n")
+
+        val solution = day6Solver.solveSecondStar(input)
+        Assert.assertEquals(7, solution)
+    }
+
+    @Test
+    fun realTestStar2() {
+        val input = inputReader.readDaySixAsListOfString("input_day6.txt")
+        val solution = day6Solver.solveSecondStar(input)
         println("Solution:$solution")
     }
 }

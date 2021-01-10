@@ -57,11 +57,15 @@ class InputReader {
         return result
     }
 
-    fun readDaySixAsListOfMap(fileName: String): List<String> {
+    fun readDaySixAsListOfString(fileName: String): List<String> {
         val inputStream = javaClass.classLoader.getResource(fileName)
-        val result = File(inputStream.toURI())
+        return File(inputStream.toURI())
             .readText().split("\n\n")
+    }
 
-        return result
+    fun readDaySevenAsListOfString(fileName: String): List<String> {
+        val inputStream = javaClass.classLoader.getResource(fileName)
+        return File(inputStream.toURI())
+            .readText().split("\n")
     }
 }
